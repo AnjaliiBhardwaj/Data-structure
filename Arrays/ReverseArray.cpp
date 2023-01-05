@@ -1,8 +1,5 @@
 #include <iostream>
 using namespace std;
-
-
-
 void Reverse (int arr[],int size){
 
     int start=0;
