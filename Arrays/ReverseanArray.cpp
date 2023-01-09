@@ -13,7 +13,7 @@ int main(){
         int end=size-1;
 
         while (start<=end){
-            for(i=0;j<size;j--){
+            for(j=0;j<size;j--){
                 int temp= arr[start];
                 arr[start]=arr[end];
                 arr[end]= temp; 
