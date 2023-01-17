@@ -26,5 +26,4 @@ int main(){
     }
 
     duplicate(arr, size);
-
 }
