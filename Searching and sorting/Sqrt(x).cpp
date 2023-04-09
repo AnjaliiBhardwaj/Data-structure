@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int binarySearch(int n){
+long long int sqrtInteger(int n){
     int s=0;
     int e=n;
     long long int mid=s+(e-s)/2;
@@ -22,8 +22,26 @@ int binarySearch(int n){
     }
     return ans;
 }
+double morePrecision(int n, int precision ,int tempSol){
+    double factor=1;
+    double ans= tempSol;
+    for(int i=0;i<precision;i++){
+        factor =factor/10;
 
-int mySqrt(int x) {
-        return binarySearch(x);
+        for(double j=ans;j*j<n; j= j+factor){
+            ans=j;
+        }
     }
+    return ans;
+
+}
+int main(){
+    int n;
+    cout<<"Enter the num: "<<endl;
+    cin>>n;
+
+    int tempSol=sqrtInteger(n);
+    cout<<"Answer is "<< morePrecision(n,3, tempSol);
+    return 0;
+}
 
