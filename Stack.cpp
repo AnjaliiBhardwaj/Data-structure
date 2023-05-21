@@ -13,4 +13,6 @@ int main(){
     cout<<"Top ele: "<<s.top()<<endl;
 
     cout<<"size of stack: "<<s.size()<<endl;
+
+    //empty works same
 }
