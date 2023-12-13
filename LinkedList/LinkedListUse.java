@@ -8,5 +8,11 @@ public class LinkedListUse{
         node1.next=node2;
         System.out.println(node1.next);
         System.out.println(node2);
+
+        Node <Integer> head= node1;
+        while(head!=null){
+            System.out.println(head.data);
+            head=head.next;
+        }
     }
 }
