@@ -14,9 +14,13 @@ public class TreeUse{
         }
         return root;
     }
+    public static void print(){
+
+    }
     public static void main(String[] args){
         //create nodes which are not linked yet
         TreeNode <Integer> root=takeInput();
+        print(root);
         // TreeNode <Integer> node1 =new TreeNode<Integer>(2);
         // TreeNode <Integer> node2=new TreeNode<Integer>(3);
         // TreeNode <Integer> node3=new TreeNode<Integer>(5);
