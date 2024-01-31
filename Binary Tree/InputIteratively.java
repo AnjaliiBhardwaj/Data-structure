@@ -27,7 +27,7 @@ class InputIteratively{
         return root;
     }
     public static void print(BinaryTreeNode<Integer> root){
-        
+
     }
     public static void main(String[] args){
         BinaryTreeNode<Integer> root=takeInput();
