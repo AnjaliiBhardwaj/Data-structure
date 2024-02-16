@@ -1,5 +1,34 @@
 import java.util.*;
 class IsBalanced{
+    public static BalancedTreeReturn isBalancedBetter(BinaryTreeNode<Integer> root){
+        if(root==null){
+            int height=0;
+            boolean isBal=true;
+            BalancedTreeReturn ans=new BalancedTreeReturn();
+            ans.height=height;
+            ans.isBalanced= isBal;
+
+            return ans;
+        }
+        BalancedTreeReturn checkLeft=isBalancedBetter(root.left);
+        BalancedTreeReturn checkRight=isBalancedBetter(root.right);
+
+        boolean isBal=true;
+        int height= 1+Math.max(checkLeft.height,checkRight.height);
+        if(Math.abs(checkLeft.height - checkRight.height)>1){
+            isBal=false;
+        }
+        else if(!checkLeft.isBalanced || !checkRight.isBalanced){
+            isBal=false;
+        }
+
+        BalancedTreeReturn ans= new BalancedTreeReturn();
+        ans.height=height;
+        ans.isBalanced=isBal;
+
+        return ans;
+
+    }
     public static BinaryTreeNode<Integer> takeInput(){
         Scanner sc=new Scanner (System.in);
         int rootdata=sc.nextInt();
@@ -55,8 +84,10 @@ class IsBalanced{
     }
 
     public static void main(String[] args){
+        
         BinaryTreeNode <Integer> root=takeInput();
         height(root);
-        System.out.print("is balanced :"+ checkBalanced(root));
+        // checking for isBalanced field from the BalancedTreeReturn object.
+        System.out.print("is balanced :"+ isBalancedBetter(root).isBalanced);
     }
 }
