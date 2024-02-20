@@ -9,6 +9,29 @@ class Diameter{
 
         return 1+(Math.max(leftHeight,rightHeight));
     }
+    public static Pair<Integer,Integer> diameterHeight(BinaryTreeNode<Integer> root){
+        if(root==null){
+            Pair<Integer,Integer> ans=new Pair<>();
+            ans.first=0;//height
+            ans.second=0;//diameter
+            return ans;
+        }
+        Pair<Integer,Integer> lo=diameterHeight(root.left);
+        Pair<Integer,Integer> Ro=diameterHeight(root.right);
+        //cal height
+        int height=1+(Math.max(lo.first,Ro.first));
+        //cal diameter
+        int option1=lo.first+Ro.first;
+        int option2=lo.second;
+        int option3=lo.second;
+
+        int diameter= (Math.max(option1,Math.max(option2,option3)));
+        Pair<Integer,Integer> ans=new Pair<>();
+        ans.first=height;
+        ans.second=diameter;
+        return ans;
+        
+    }
     public static int diameter(BinaryTreeNode<Integer> root){
         if(root==null){
             return 0;
@@ -51,6 +74,7 @@ class Diameter{
     }
     public static void main(String[] args){
         BinaryTreeNode <Integer> root=takeInput();
-        System.out.println("diameter: "+ diameter(root));
+        // System.out.println("diameter: "+ diameter(root));
+        System.out.println("diameter: "+ diameterHeight(root).second);
     }
 }
