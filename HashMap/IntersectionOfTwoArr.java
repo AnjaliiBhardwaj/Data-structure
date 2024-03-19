@@ -23,6 +23,7 @@ class IntersectionOfTwoArr{
 
         for(int i=0;i<arr1.length;i++){
             if (map1.containsKey(arr1[i]) && map2.containsKey(arr1[i])) {
+                //min freq will be common b/w them
                 int maxFreq = Math.min(map1.get(arr1[i]), map2.get(arr1[i]));
                 for (int j = 0; j < maxFreq; j++) {
                     System.out.print(arr1[i] + " ");
