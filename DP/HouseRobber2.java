@@ -84,4 +84,28 @@ class HouseRobber2{
     //     }
     //     return Math.max(robHelper(0,size-2,nums),robHelper(1,size-1,nums));
     // }
+
+    //space otimization
+    public int robHelper(int s, int end, int nums[]) {
+        int prev1 = 0; // equivalent to dp[i-1]
+        int prev2 = 0; // equivalent to dp[i-2]
+        for (int i = s; i <= end; i++) {
+            int current = Math.max(prev1, prev2 + nums[i]);
+            prev2 = prev1;
+            prev1 = current;
+        }
+        return prev1; // equivalent to dp[n-1]
+    }
+
+    public int rob(int[] nums) {
+        int size = nums.length;
+        if (size == 1) 
+        return nums[0];
+        if (size == 2) {
+            return Math.max(nums[0], nums[1]);
+        }
+
+        // Rob houses from 0 to size-2 and from 1 to size-1, take the maximum
+        return Math.max(robHelper(0, size - 2, nums), robHelper(1, size - 1, nums));
+    }
 }
