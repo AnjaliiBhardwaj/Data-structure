@@ -1,3 +1,4 @@
+// in place TC O(n*m)
 class SetMatrixZero{
     public void setRow(int matrix[][], int row, int col, int i){
         for(int c=0;c<col;c++){
