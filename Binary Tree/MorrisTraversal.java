@@ -89,5 +89,5 @@ class MorrisTraversal{
         BinaryNode root=takeInput(sc);
         getInorder(root);
         getPreorder(root);
-    }
+        }
 }
